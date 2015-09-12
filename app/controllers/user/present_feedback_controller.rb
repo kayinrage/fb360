@@ -1,4 +1,4 @@
-class Admin::PresentFeedbackController < Admin::AdminController
+class User::PresentFeedbackController < User::UserController
   expose(:users) { User.active.for_display }
   expose(:receiver) { receiver }
   expose(:feedbacks) { Feedback.for_presentation(receiver, 3.weeks.ago) }

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Admin::PresentFeedbackController do
+describe User::PresentFeedbackController do
   render_views
   include_context 'admin signed in'
 

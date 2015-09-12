@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root to: 'home#show'
 
   namespace :admin do
-    resource :present_feedback, only: :show, controller: :present_feedback
     resource :publish_feedback, only: [:show, :update], controller: :publish_feedback
     resources :users, only: [:new, :create, :index, :edit, :update] do
       resource :reset_password, only: :update, controller: :reset_password
@@ -12,6 +11,7 @@ Rails.application.routes.draw do
 
   namespace :user do
     resources :feedbacks, only: [:new, :create, :index, :edit, :update, :destroy]
+    resource :present_feedback, only: :show, controller: :present_feedback
     resource :profile, controller: :profile, only: [:edit, :update]
   end
 end

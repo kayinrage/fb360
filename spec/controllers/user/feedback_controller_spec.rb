@@ -294,5 +294,3 @@ describe User::FeedbacksController do
     end
   end
 end
-
-

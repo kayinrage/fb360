@@ -1,0 +1,28 @@
+.col-md-6.col-md-offset-3.presentation-panel
+  %span.container-prev
+    = link_to 'Previous', user_present_feedback_path(receiver_id: receiver.previous.id), class: 'btn btn-info', id: 'prev-button'
+  %span.container-name
+    = receiver.full_name
+  %span.container-next
+    = link_to 'Next', user_present_feedback_path(receiver_id: receiver.next.id), class: 'btn btn-info', id: 'next-button'
+
+%table.table.table-striped
+  %tbody
+    - feedbacks.each do |feedback|
+      %tr{class: feedback.tr_class}
+        %td= feedback.content
+        %td{style:'width:200px;text-align:right'}= feedback.giver
+
+:javascript
+  $(document).keydown(function(e){
+    if (e.keyCode == 37) {
+      clickLink('#prev-button');
+    } else if (e.keyCode == 39) {
+      clickLink('#next-button');
+    }
+  });
+
+  function clickLink(id) {
+    $(id).effect("highlight", {color: '#000066'}, 10000);
+    $(id)[0].click();
+  }
